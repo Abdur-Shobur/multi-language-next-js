@@ -1,9 +1,10 @@
 'use client';
-import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { useParams, useRouter, usePathname } from 'next/navigation'; // Import usePathname
+import MenuItem from './menu-item';
 
-export function Menu() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function Menu({ data }: { data: any }) {
 	const params = useParams();
 	const router = useRouter(); // Get the router instance
 	const pathname = usePathname(); // Get the current pathname
@@ -11,18 +12,6 @@ export function Menu() {
 	useEffect(() => {
 		document.documentElement.lang = lang.toString(); // Update the lang attribute of the <html> element
 	}, [lang]);
-
-	// Define the menu items based on the current language
-	const menu = [
-		{
-			name: 'Home',
-			path: '/' + lang, // Updated path for home based on lang
-		},
-		{
-			name: 'About',
-			path: '/' + lang + '/about', // Updated path for about based on lang
-		},
-	];
 
 	const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const newLang = e.target.value;
@@ -37,13 +26,7 @@ export function Menu() {
 
 	return (
 		<div className="flex justify-center gap-3">
-			<ul className="flex gap-3">
-				{menu.map((item) => (
-					<li key={item.name}>
-						<Link href={item.path}>{item.name}</Link>
-					</li>
-				))}
-			</ul>
+			<MenuItem data={data} />
 			<select
 				className="bg-transparent"
 				value={lang}

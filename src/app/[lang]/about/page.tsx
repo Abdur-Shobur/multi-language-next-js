@@ -7,8 +7,7 @@ export default async function HomePage({
 }) {
 	// use await other wise get error
 	const { lang } = await params;
-
 	const data = await getData(lang);
-	console.log(data);
+
 	return <div className="text-2xl text-center">Data: {data?.about}</div>;
 }

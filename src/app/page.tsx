@@ -1,6 +1,5 @@
 import { redirect } from 'next/navigation';
 
-export default function Home() {
-	// default go en
+export default async function Home() {
 	redirect('/en');
 }
