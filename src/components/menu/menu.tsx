@@ -1,12 +1,12 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { useParams, useRouter } from 'next/navigation'; // Use useRouter for programmatic navigation
+import { useParams, useRouter, usePathname } from 'next/navigation'; // Import usePathname
 
 export function Menu() {
 	const params = useParams();
-
 	const router = useRouter(); // Get the router instance
+	const pathname = usePathname(); // Get the current pathname
 	const [lang, setLang] = React.useState(params.lang || 'en');
 
 	// Define the menu items based on the current language
@@ -24,8 +24,12 @@ export function Menu() {
 	const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const newLang = e.target.value;
 		setLang(newLang);
-		// Change the route to the new language's home page
-		router.push('/' + newLang); // Programmatically navigate to the new language
+
+		// Replace the language part of the current pathname
+		const updatedPath = pathname.replace(/^\/[a-z]{2}/, `/${newLang}`); // Update language code
+
+		// Navigate to the updated path with the new language
+		router.push(updatedPath);
 	};
 
 	return (

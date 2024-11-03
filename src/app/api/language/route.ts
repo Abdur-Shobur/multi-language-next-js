@@ -3,7 +3,7 @@ const lang = [
 	{
 		message: 'Home page',
 		title: 'Home',
-		about: 'About us',
+		about: 'About us page',
 		type: 'en',
 	},
 	{
@@ -19,9 +19,9 @@ const lang = [
 		type: 'fr',
 	},
 	{
-		message: 'স্বাগত',
-		title: 'স্বাগত',
-		about: 'সম্পর্কে',
+		message: 'স্বাগত পৃষ্ঠা',
+		title: 'স্বাগত পৃষ্ঠা',
+		about: 'সম্পর্কে আমাদের',
 		type: 'bn',
 	},
 ];
