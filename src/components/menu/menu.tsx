@@ -46,16 +46,16 @@ export function Menu() {
 				value={lang}
 				onChange={handleLangChange} // Handle change in language selection
 			>
-				<option className="bg-transparent" value="en">
+				<option className="bg-black" value="en">
 					English
 				</option>
-				<option className="bg-transparent" value="es">
+				<option className="bg-black" value="es">
 					Spanish
 				</option>
-				<option className="bg-transparent" value="fr">
+				<option className="bg-black" value="fr">
 					French
 				</option>
-				<option className="bg-transparent" value="bn">
+				<option className="bg-black" value="bn">
 					Bengali
 				</option>
 			</select>
