@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useRouter, usePathname } from 'next/navigation'; // Import usePathname
 
 export function Menu() {
@@ -8,6 +8,9 @@ export function Menu() {
 	const router = useRouter(); // Get the router instance
 	const pathname = usePathname(); // Get the current pathname
 	const [lang, setLang] = React.useState(params.lang || 'en');
+	useEffect(() => {
+		document.documentElement.lang = lang.toString(); // Update the lang attribute of the <html> element
+	}, [lang]);
 
 	// Define the menu items based on the current language
 	const menu = [
